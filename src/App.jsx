@@ -1,6 +1,6 @@
 import axios from 'axios'
 import './App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
 
@@ -16,12 +16,15 @@ function App() {
 
   }
 
+  useEffect(()=>{
+    fetchingJokes()
+  },[])
 
   return (
     <>
-      <div className='flex flex-col w-[100vw] h-[100vh] bg-gradient-to-b from-gray-700 to-blue-400 items-center gap-[5rem] sm:gap-0'>
+      <div className='main flex flex-col w-[100vw] h-[100vh] bg-gradient-to-b from-gray-700 to-blue-400 items-center gap-[5rem] sm:gap-0'>
         <h1 className='text-[3rem] mt-10 text-white font-extrabold'>Random Jokes</h1>
-        <div className='w-[95%] h-[35%] rounded-[12px] flex flex-col items-center gap-[1rem] justify-center bg-gradient-to-b from-gray-800 to-gray-600 mt-[5rem] sm:w-[85%] sm:h-[45%]'>
+        <div className='w-[99%] h-[35%] rounded-[12px] flex flex-col items-center gap-[1rem] justify-center bg-gradient-to-b from-gray-800 to-gray-600 mt-[5rem] sm:w-[85%] sm:h-[45%]'>
           <p className='text-[18px] text-white sm:text-[38px]'>{setup}</p>
           <p className='text-[18px] text-white sm:text-[38px]'>{punchline}</p>
         </div>
